@@ -82,7 +82,7 @@ export function Hero() {
           className="hidden md:block object-cover"
         />
         <Image
-          src="/hero-mobile1.png"
+          src="/hero-mobile11.png"
           alt="Underwater background"
           fill
           priority
