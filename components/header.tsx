@@ -24,9 +24,9 @@ export function Header() {
                 priority
               ></Image>
             </div>
-            <span className="font-serif text-xl md:text-2xl font-bold text-white tracking-wide drop-shadow-sm">
+            {/*<span className="font-serif text-xl md:text-2xl font-bold text-white tracking-wide drop-shadow-sm">
               Blue Star Service
-            </span>
+            </span>*/}
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
