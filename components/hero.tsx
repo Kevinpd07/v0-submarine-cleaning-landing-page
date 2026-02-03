@@ -3,49 +3,39 @@ import { Button } from "@/components/ui/button";
 import { Phone, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  Search,
-  Waves,
-  Shield,
-  Settings,
-  Lightbulb,
-  Building,
-  Anchor,
-  FileCheck,
-} from "lucide-react";
 
 const services = [
   {
-    icon: Search,
+    icon: "/icons/1.png", // Cambia estos paths por tus imágenes reales
     title: "Underwater inspection and video recording",
   },
   {
-    icon: Waves,
+    icon: "/icons/2.png",
     title: "Hull cleaning (running gear and bottom)",
   },
   {
-    icon: Shield,
+    icon: "/icons/3.png",
     title: "Replacement of sacrificial anodes (zincs)",
   },
   {
-    icon: Settings,
+    icon: "/icons/4.png",
     title: "Propeller adjustment and replacement",
   },
   {
-    icon: Lightbulb,
+    icon: "/icons/5.png",
     title:
       "Underwater installation of lights, stabilizers, thru-hulls, and other fittings",
   },
   {
-    icon: Building,
+    icon: "/icons/6.png",
     title: "Cleaning and maintenance of dock pilings and marine structures",
   },
   {
-    icon: Anchor,
+    icon: "/icons/7.png",
     title: "Underwater object recovery",
   },
   {
-    icon: FileCheck,
+    icon: "/icons/8.png",
     title: "Additional underwater services upon request",
   },
 ];
@@ -94,20 +84,9 @@ export function Hero() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          {/*<p className="text-accent font-medium tracking-widest uppercase mb-4">
-            Our Services
-          </p>
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white/90 mb-6 text-balance uppercase tracking-widest drop-shadow-lg ">
-            our underwater services
-          </h2>
-          
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            We have certified divers and professional equipment to offer the
-            highest quality services.
-          </p>*/}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-xs">
           {/* Services List - Left Side */}
           <div className="space-y-2">
             {services.map((service, index) => (
@@ -115,12 +94,18 @@ export function Hero() {
                 key={service.title}
                 className="flex items-start gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                  <service.icon className="h-5 w-5 text-white group-hover:text-primary-foreground transition-colors" />
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
+                  <Image
+                    src={service.icon}
+                    alt=""
+                    width={12}
+                    height={12}
+                    className="object-contain"
+                  />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-white/90 leading-snug">
-                    <span className="text-white/60 font-bold mr-2">
+                  <h3 className="font-medium text-black/90 leading-snug">
+                    <span className="text-black/60 font-bold mr-2">
                       {index + 1}.
                     </span>
                     {service.title}
@@ -167,44 +152,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/*
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <p className="text-accent font-medium tracking-widest uppercase mb-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          Professional Underwater Services
-        </p>
-        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 text-balance animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-          Blue Star Service
-        </h1>
-        <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-8 leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-          We provide professional underwater cleaning services for boats and yachts. Fast and efficient solutions to
-          keep your vessel in optimal condition.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
-          <Button size="lg" variant="secondary" asChild className="text-lg">
-            <a href="tel:+13059050396">
-              <Phone className="mr-2 h-5 w-5" />
-              +1 (305) 905 0396
-            </a>
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            asChild
-            className="text-lg bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-          >
-            <a href="#services">Our Services</a>
-          </Button>
-        </div>
-      </div>
-      
-
-      <a
-        href="#services"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/70 hover:text-primary-foreground transition-colors animate-bounce"
-        aria-label="Scroll to services"
-      >
-        <ChevronDown className="h-8 w-8" />
-      </a>*/}
     </section>
   );
 }

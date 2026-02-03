@@ -17,7 +17,7 @@ export function Header() {
             {/*<Anchor className="h-8 w-8 text-white/90" />*/}
             <div className="relative h-8 w-8 md:h-9 md:w-9">
               <Image
-                src="/florida-flag2.png"
+                src="/flag.png"
                 alt="Florida diver flag"
                 fill
                 className="object-contain drop-shadow-sm"
