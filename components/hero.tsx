@@ -98,8 +98,8 @@ export function Hero() {
                   <Image
                     src={service.icon}
                     alt=""
-                    width={12}
-                    height={12}
+                    width={20}
+                    height={20}
                     className="object-contain"
                   />
                 </div>
