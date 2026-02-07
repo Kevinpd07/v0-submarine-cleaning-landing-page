@@ -61,7 +61,7 @@ export function Hero() {
   return (
     <section
       id="services"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-70 pb-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-60 pb-30 md:pt-80 md:pb-40"
     >
       <div className="absolute inset-0 z-0">
         <Image
@@ -83,28 +83,28 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-1">
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-xs">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-xs md:text-base ">
           {/* Services List - Left Side */}
           <div className="space-y-2">
             {services.map((service, index) => (
               <div
                 key={service.title}
-                className="flex items-start gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
+                className="flex items-start gap-1 p-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
                   <Image
                     src={service.icon}
                     alt=""
-                    width={20}
-                    height={20}
+                    width={35}
+                    height={35}
                     className="object-contain"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-medium text-black/90 leading-snug">
+                  <h3 className="font-medium text-black/90 leading-snug pt-2 pl-1">
                     <span className="text-black/60 font-bold mr-2">
                       {index + 1}.
                     </span>
