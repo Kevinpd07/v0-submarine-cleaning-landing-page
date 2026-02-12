@@ -12,21 +12,19 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-auto md:h-20 py-3 md:py-0">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex flex-col items-start gap-1">
-              <div className="flex items-center gap-3">
-                <div className="relative h-8 w-8 md:h-9 md:w-9 flex-shrink-0">
-                  <Image
-                    src="/flag.png"
-                    alt="Florida diver flag"
-                    fill
-                    className="object-contain drop-shadow-sm"
-                    priority
-                  />
-                </div>
+        <div className="flex items-center justify-between h-auto md:h-20 py-0 md:py-0">
+          <Link href="/" className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <div className="relative h-15 w-15 md:h-15 md:w-15 flex-shrink-0">
+                <Image
+                  src="/flag.png"
+                  alt="Florida diver flag"
+                  fill
+                  className="object-contain drop-shadow-sm"
+                  priority
+                />
               </div>
-              <p className="text-[10px] md:text-xs text-blue-600 font-medium leading-tight max-w-[200px] md:max-w-xs">
+              <p className="text-sm md:text-base text-blue-600 font-medium leading-tight">
                 Underwater Cleaning & Maintenance.
               </p>
             </div>
@@ -42,7 +40,7 @@ export function Header() {
           </nav>
 
           <button
-            className="md:hidden p-2 self-start"
+            className="md:hidden py-5 self-start"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
