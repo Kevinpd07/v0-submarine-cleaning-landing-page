@@ -3,40 +3,40 @@ import { Button } from "@/components/ui/button";
 import { Phone, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/components/language-context";
 
 const services = [
   {
-    icon: "/icons/1.png", // Cambia estos paths por tus imágenes reales
-    title: "Underwater inspection and video recording",
+    icon: "/icons/1.png",
+    title: { es: "Inspección submarina y grabación de video", en: "Underwater inspection and video recording" },
   },
   {
     icon: "/icons/2.png",
-    title: "Hull cleaning (running gear and bottom)",
+    title: { es: "Limpieza del casco (equipo de propulsión y fondo)", en: "Hull cleaning (running gear and bottom)" },
   },
   {
     icon: "/icons/3.png",
-    title: "Replacement of sacrificial anodes (zincs)",
+    title: { es: "Reemplazo de ánodos de sacrificio (zincs)", en: "Replacement of sacrificial anodes (zincs)" },
   },
   {
     icon: "/icons/4.png",
-    title: "Propeller adjustment and replacement",
+    title: { es: "Ajuste y reemplazo de hélice", en: "Propeller adjustment and replacement" },
   },
   {
     icon: "/icons/5.png",
-    title:
-      "Underwater installation of lights, stabilizers, thru-hulls, and other fittings",
+    title: { es: "Instalación submarina de luces, estabilizadores, etc.", en: "Underwater installation of lights, stabilizers, thru-hulls, and other fittings" },
   },
   {
     icon: "/icons/6.png",
-    title: "Cleaning and maintenance of dock pilings and marine structures",
+    title: { es: "Limpieza y mantenimiento de pilotes de muelle", en: "Cleaning and maintenance of dock pilings and marine structures" },
   },
   {
     icon: "/icons/7.png",
-    title: "Underwater object recovery",
+    title: { es: "Recuperación de objetos submarinos", en: "Underwater object recovery" },
   },
   {
     icon: "/icons/8.png",
-    title: "Additional underwater services upon request",
+    title: { es: "Servicios submarinos adicionales bajo solicitud", en: "Additional underwater services upon request" },
   },
 ];
 
@@ -50,6 +50,7 @@ const serviceImages = [
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -91,7 +92,7 @@ export function Hero() {
           <div className="space-y-2">
             {services.map((service, index) => (
               <div
-                key={service.title}
+                key={index}
                 className="flex items-start gap-1 p-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
@@ -108,7 +109,7 @@ export function Hero() {
                     <span className="text-black/60 font-bold mr-2">
                       {index + 1}.
                     </span>
-                    {service.title}
+                    {service.title[language]}
                   </h3>
                 </div>
               </div>

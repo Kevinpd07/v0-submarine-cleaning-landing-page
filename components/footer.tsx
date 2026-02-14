@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Anchor, Facebook, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "./language-context";
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="relative py-16 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4">
@@ -22,22 +26,24 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
-              Servicios profesionales de limpieza submarina para barcos y yates
-              en Miami.
+              {t({ 
+                es: "Servicios profesionales de limpieza submarina para barcos y yates en Miami.", 
+                en: "Professional underwater cleaning services for boats and yachts in Miami." 
+              })}
             </p>
           </div>
 
           <div className="text-center">
             <p className="font-semibold mb-2 tracking-wide">
-              Servicio disponible en:
+              {t({ es: "Servicio disponible en:", en: "Service available at:" })}
             </p>
             <p className="text-white/70 text-sm">
-              Marinas • Puertos • Muelles Privados
+              {t({ es: "Marinas • Puertos • Muelles Privados", en: "Marinas • Ports • Private Docks" })}
             </p>
           </div>
 
           <div className="md:text-right">
-            <p className="font-semibold mb-4">Síguenos</p>
+            <p className="font-semibold mb-4">{t({ es: "Síguenos", en: "Follow Us" })}</p>
             <div className="flex gap-4 md:justify-end">
               <a
                 href="#"
@@ -66,8 +72,10 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
           <p className="text-white/50 text-sm">
-            © {new Date().getFullYear()} Blue Star Service. Todos los derechos
-            reservados.
+            © {new Date().getFullYear()} Blue Star Service. {t({ 
+              es: "Todos los derechos reservados.", 
+              en: "All rights reserved." 
+            })}
           </p>
         </div>
       </div>

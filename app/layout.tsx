@@ -2,6 +2,9 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { WhatsAppButton } from "@/components/whatsapp-button"
+import { WhatsAppProvider } from "@/components/whatsapp-context"
+import { LanguageProvider } from "@/components/language-context"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -43,7 +46,12 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`font-sans antialiased`}>
-        {children}
+        <LanguageProvider>
+          <WhatsAppProvider>
+            {children}
+            <WhatsAppButton />
+          </WhatsAppProvider>
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

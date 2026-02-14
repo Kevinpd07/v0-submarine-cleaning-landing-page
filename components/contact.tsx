@@ -39,13 +39,13 @@ export function Contact() {
             </p>
 
             <div className="space-y-6">
-              <a href="tel:+13059050396" className="flex items-center gap-4 group">
+              <a href="tel:+13059050376" className="flex items-center gap-4 group">
                 <div className="w-12 h-12 rounded-full bg-primary-foreground/10 flex items-center justify-center group-hover:bg-primary-foreground/20 transition-colors">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="text-sm text-primary-foreground/70">Teléfono</p>
-                  <p className="font-semibold">+1 (305) 905 0396</p>
+                  <p className="font-semibold">+1 (305) 905 0376</p>
                 </div>
               </a>
 
