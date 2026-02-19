@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { useWhatsApp } from "./whatsapp-context";
 import { useLanguage } from "./language-context";
@@ -32,12 +32,20 @@ export function WhatsAppModal() {
     marinaLocation: "",
     slipNumber: "",
     facilityAccessCode: "",
-    maintenanceFrequency: "",
+    maintenanceFrequency: "Monthly",
     selectedServices: [] as string[],
     initialCondition: "",
     date: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showGreeting, setShowGreeting] = useState(true);
+
+  // Reset greeting when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setShowGreeting(true);
+    }
+  }, [isOpen]);
 
   const handleServiceToggle = (service: string) => {
     setFormData((prev) => ({
@@ -63,6 +71,53 @@ export function WhatsAppModal() {
   };
 
   if (!isOpen) return null;
+
+  // Greeting / Courtesy step
+  if (showGreeting) {
+    return (
+      <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          onClick={() => { closeModal(); setShowGreeting(true); }}
+        />
+
+        {/* Greeting Card */}
+        <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 text-center animate-fade-in">
+          {/* Close button */}
+          <button
+            onClick={() => { closeModal(); }}
+            className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Cerrar"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <MessageCircle className="h-8 w-8 text-green-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">
+            {language === "es" ? "¡Bienvenido! 🚀" : "Welcome! 🚀"}
+          </h2>
+          <p className="text-gray-600 mb-2">
+            {language === "es" 
+              ? "Rellene el formulario y será atendido con urgencia por nuestro equipo."
+              : "Fill out the form and our team will assist you promptly."}
+          </p>
+          <p className="text-gray-500 text-sm mb-6">
+            {language === "es" 
+              ? "Responderemos su consulta en menos de 2 horas."
+              : "We will respond to your inquiry within 2 hours."}
+          </p>
+          <button
+            onClick={() => setShowGreeting(false)}
+            className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+          >
+            {language === "es" ? "Comenzar Solicitud" : "Start Request"}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4">
@@ -251,14 +306,13 @@ export function WhatsAppModal() {
             <h3 className="font-semibold text-gray-800 mb-3">{t({ es: "Mantenimiento", en: "Maintenance" })}</h3>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Maintenance Frequency
+                {t({ es: "Frecuencia de Mantenimiento", en: "Maintenance Frequency" })}
               </label>
               <select
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 value={formData.maintenanceFrequency}
                 onChange={(e) => setFormData({ ...formData, maintenanceFrequency: e.target.value })}
               >
-                <option value="">{t({ es: "Seleccionar frecuencia...", en: "Select frequency..." })}</option>
                 <option value="Monthly">{t({ es: "Mensual", en: "Monthly" })}</option>
                 <option value="Every 20 days">{t({ es: "Cada 20 días", en: "Every 20 days" })}</option>
                 <option value="Every 15 days">{t({ es: "Cada 15 días", en: "Every 15 days" })}</option>
@@ -308,7 +362,7 @@ export function WhatsAppModal() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  {t({ es: "Fecha Preferida", en: "Preferred Date" })}
+                  {t({ es: "Fecha", en: "Date" })}
                 </label>
                 <input
                   type="date"

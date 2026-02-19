@@ -18,22 +18,29 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-auto md:h-20 py-0 md:py-0">
           <Link href="/" className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
-              <div className="relative h-15 w-15 md:h-15 md:w-15 flex-shrink-0">
-                <Image
-                  src="/flag.png"
-                  alt="Florida diver flag"
-                  fill
-                  className="object-contain drop-shadow-sm"
-                  priority
-                />
+            <div className="flex flex-col">
+              <div className="flex items-center gap-3">
+                <div className="relative h-15 w-15 md:h-15 md:w-15 flex-shrink-0">
+                  <Image
+                    src="/flag.png"
+                    alt="Florida diver flag"
+                    fill
+                    className="object-contain drop-shadow-sm"
+                    priority
+                  />
+                </div>
+                <div>
+                  <p className="text-xs md:text-base text-blue-600 font-medium leading-tight">
+                    {t({ 
+                      es: "Limpieza Submarina y Mantenimiento", 
+                      en: "Underwater Cleaning & Maintenance" 
+                    })}
+                  </p>
+                  <a href="tel:+13059050376" className="text-xs md:text-sm text-blue-500 font-semibold hover:text-blue-700 block md:inline mt-1 ml-12">
+                    +1 (305) 905 0376
+                  </a>
+                </div>
               </div>
-              <p className="text-sm md:text-base text-blue-600 font-medium leading-tight">
-                {t({ 
-                  es: "Limpieza Submarina y Mantenimiento", 
-                  en: "Underwater Cleaning & Maintenance" 
-                })}
-              </p>
             </div>
           </Link>
 
@@ -41,7 +48,7 @@ export function Header() {
             {/* Language Switcher */}
             <button
               onClick={() => setLanguage(language === "es" ? "en" : "es")}
-              className="bg-white/10 hover:bg-white/20 text-white font-semibold shadow-md cursor-pointer px-3 py-2 rounded-lg flex items-center gap-2 border border-white/20"
+              className="bg-gray-900 hover:bg-gray-800 text-white font-semibold shadow-md cursor-pointer px-3 py-2 rounded-lg flex items-center gap-2"
             >
               <Globe className="h-4 w-4" />
               {language === "es" ? "ES" : "EN"}
@@ -86,7 +93,7 @@ export function Header() {
                   setLanguage(language === "es" ? "en" : "es");
                   setIsMenuOpen(false);
                 }}
-                className="w-fit bg-white/10 hover:bg-white/20 cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2 border border-white/20"
+                className="w-fit bg-gray-900 hover:bg-gray-800 cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2 text-white font-semibold"
               >
                 <Globe className="h-4 w-4" />
                 {language === "es" ? "Español" : "English"}
