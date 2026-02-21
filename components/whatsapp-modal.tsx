@@ -95,18 +95,25 @@ export function WhatsAppModal() {
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <MessageCircle className="h-8 w-8 text-green-600" />
           </div>
+          <div className="mb-4">
+            <img 
+              src="/icons/welcome.png" 
+              alt="Submarine Cleaning" 
+              className="w-full h-40 object-cover rounded-lg"
+            />
+          </div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">
-            {language === "es" ? "¡Bienvenido! 🚀" : "Welcome! 🚀"}
+            {language === "es" ? "¡Bienvenido!" : "Welcome!"}
           </h2>
           <p className="text-gray-600 mb-2">
             {language === "es" 
-              ? "Rellene el formulario y será atendido con urgencia por nuestro equipo."
-              : "Fill out the form and our team will assist you promptly."}
+              ? "Complete el formulario para evaluar el trabajo, precio y plazo."
+              : "Please complete the form yo evaluate the scope of work, pricing and timeline."}
           </p>
           <p className="text-gray-500 text-sm mb-6">
             {language === "es" 
-              ? "Responderemos su consulta en menos de 2 horas."
-              : "We will respond to your inquiry within 2 hours."}
+              ? "Será atendido a la brevedad posible."
+              : "You will be assisted as soon as possible."}
           </p>
           <button
             onClick={() => setShowGreeting(false)}

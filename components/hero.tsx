@@ -8,11 +8,11 @@ import { useLanguage } from "@/components/language-context";
 const services = [
   {
     icon: "/icons/1.png",
-    title: { es: "Inspección submarina y grabación de video", en: "Underwater inspection and video recording" },
+    title: { es: "Inspección submarina y registro fílmico", en: "Underwater inspection and video recording" },
   },
   {
     icon: "/icons/2.png",
-    title: { es: "Limpieza del casco (equipo de propulsión y fondo)", en: "Hull cleaning (running gear and bottom)" },
+    title: { es: "Limpieza del casco del barco(obra viva)", en: "Hull cleaning (running gear and bottom)" },
   },
   {
     icon: "/icons/3.png",
@@ -24,19 +24,19 @@ const services = [
   },
   {
     icon: "/icons/5.png",
-    title: { es: "Instalación submarina de luces, estabilizadores, etc.", en: "Underwater installation of lights, stabilizers, thru-hulls, and other fittings" },
+    title: { es: "Instalación submarina de luces, estabilizadores, tomas de fondo y otros accesorios.", en: "Underwater installation of lights, stabilizers, thru-hulls, and other fittings" },
   },
   {
     icon: "/icons/6.png",
-    title: { es: "Limpieza y mantenimiento de pilotes de muelle", en: "Cleaning and maintenance of dock pilings and marine structures" },
+    title: { es: "Limpieza y mantenimiento de pilotes y estructuras de muelles.", en: "Cleaning and maintenance of dock pilings and marine structures" },
   },
   {
     icon: "/icons/7.png",
-    title: { es: "Recuperación de objetos submarinos", en: "Underwater object recovery" },
+    title: { es: "Recuperación de objetos sumergidos.", en: "Underwater object recovery" },
   },
   {
     icon: "/icons/8.png",
-    title: { es: "Servicios submarinos adicionales bajo solicitud", en: "Additional underwater services upon request" },
+    title: { es: "Servicios submarinos adicionales bajo solicitud.", en: "Additional underwater services upon request" },
   },
 ];
 
