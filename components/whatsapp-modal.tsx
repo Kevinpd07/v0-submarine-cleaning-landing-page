@@ -99,7 +99,7 @@ export function WhatsAppModal() {
             <img 
               src="/icons/welcome.png" 
               alt="Submarine Cleaning" 
-              className="w-full h-40 object-cover rounded-lg"
+              className="w-full h-50 object-cover rounded-lg"
             />
           </div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">
@@ -108,7 +108,7 @@ export function WhatsAppModal() {
           <p className="text-gray-600 mb-2">
             {language === "es" 
               ? "Complete el formulario para evaluar el trabajo, precio y plazo."
-              : "Please complete the form yo evaluate the scope of work, pricing and timeline."}
+              : "Please complete the form to evaluate the scope of work, pricing and timeline."}
           </p>
           <p className="text-gray-500 text-sm mb-6">
             {language === "es" 

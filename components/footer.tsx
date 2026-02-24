@@ -15,7 +15,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-4">
               <div className="relative h-8 w-8">
                 <Image
-                  src="/florida-flag2.png"
+                  src="/flag.png"
                   alt="Florida diver flag"
                   fill
                   className="object-contain brightness-110 drop-shadow-sm"
@@ -27,8 +27,8 @@ export function Footer() {
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
               {t({ 
-                es: "Servicios profesionales de limpieza submarina para barcos y yates en Miami.", 
-                en: "Professional underwater cleaning services for boats and yachts in Miami." 
+                es: "Servicios profesionales de limpieza submarina,mantenimiento para barcos y yates.", 
+                en: "Professional underwater cleaning services,mantenance for boats and yachts." 
               })}
             </p>
           </div>
