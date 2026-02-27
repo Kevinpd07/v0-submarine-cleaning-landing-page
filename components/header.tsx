@@ -17,32 +17,28 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-auto md:h-20 py-0 md:py-0">
-          <Link href="/" className="flex items-center gap-4">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-3">
-                <div className="relative h-15 w-15 md:h-15 md:w-15 flex-shrink-0">
-                  <Image
-                    src="/flag.png"
-                    alt="Florida diver flag"
-                    fill
-                    className="object-contain drop-shadow-sm"
-                    priority
-                  />
-                </div>
-                <div>
-                  <p className="text-xs md:text-base text-blue-600 font-medium leading-tight">
-                    {t({ 
-                      es: "Limpieza Submarina y Mantenimiento", 
-                      en: "Underwater Cleaning & Maintenance" 
-                    })}
-                  </p>
-                  <a href="tel:+13059050376" className="text-xs md:text-sm text-blue-500 font-semibold hover:text-blue-700 block md:inline mt-1 ml-12">
-                    +1 (305) 905 0376
-                  </a>
-                </div>
-              </div>
+          <Link href="/" className="flex items-center gap-3">
+            <div className="relative h-15 w-15 md:h-15 md:w-15 shrink-0">
+              <Image
+                src="/flag.png"
+                alt="Florida diver flag"
+                fill
+                className="object-contain drop-shadow-sm"
+                priority
+              />
             </div>
           </Link>
+          <div className="flex flex-col">
+            <p className="text-xs md:text-base text-blue-600 font-medium leading-tight">
+              {t({ 
+                es: "Limpieza Submarina y Mantenimiento", 
+                en: "Underwater Cleaning & Maintenance" 
+              })}
+            </p>
+            <a href="tel:+13059050376" className="text-xs md:text-sm text-blue-500 font-semibold hover:text-blue-700 block md:inline mt-1 ml-10">
+              +1 (305) 905 0376
+            </a>
+          </div>
 
           <nav className="hidden md:flex items-center gap-4">
             {/* Language Switcher */}
@@ -51,15 +47,22 @@ export function Header() {
               className="bg-gray-900 hover:bg-gray-800 text-white font-semibold shadow-md cursor-pointer px-3 py-2 rounded-lg flex items-center gap-2"
             >
               <Globe className="h-4 w-4" />
-              {language === "es" ? "ES" : "EN"}
+              {language === "es" ? "EN" : "ES"}
             </button>
             <button
-              onClick={openModal}
+              onClick={() => window.open("https://wa.me/13059050376?text=Hi! I'm interested in your underwater cleaning services. Can you provide more information?", "_blank")}
               className="bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2"
             >
               <MessageCircle className="h-4 w-4" />
               {t({ es: "WhatsApp", en: "WhatsApp" })}
             </button>
+            <a
+              href={`sms:+13059050376?body=${language === "es" ? "Hola, estoy interesado en sus servicios de limpieza submarina." : "Hi, I'm interested in your underwater cleaning services."}`}
+              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow-md cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2"
+            >
+              <MessageCircle className="h-4 w-4" />
+              {t({ es: "Mensaje", en: "Message" })}
+            </a>
             <Button
               asChild
               className="bg-white text-blue-900 hover:bg-white/90 font-semibold shadow-md"
@@ -96,15 +99,25 @@ export function Header() {
                 className="w-fit bg-gray-900 hover:bg-gray-800 cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2 text-white font-semibold"
               >
                 <Globe className="h-4 w-4" />
-                {language === "es" ? "Español" : "English"}
+                {language === "es" ? "English" : "Español" }
               </button>
               <button
-                onClick={openModal}
+                onClick={() => {
+                  window.open("https://wa.me/13059050376?text=Hi! I'm interested in your underwater cleaning services. Can you provide more information?", "_blank");
+                  setIsMenuOpen(false);
+                }}
                 className="w-fit bg-green-500 hover:bg-green-600 cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
                 {t({ es: "WhatsApp", en: "WhatsApp" })}
               </button>
+              <a
+                href={`sms:+13059050376?body=${language === "es" ? "Hola, estoy interesado en sus servicios de limpieza submarina." : "Hi, I'm interested in your underwater cleaning services."}`}
+                className="w-fit bg-blue-500 hover:bg-blue-600 cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2"
+              >
+                <MessageCircle className="h-4 w-4" />
+                {t({ es: "Mensaje", en: "Message" })}
+              </a>
               <Button asChild className="w-fit">
                 <a href="tel:+13059050376">
                   <Phone className="h-4 w-4 mr-2" />

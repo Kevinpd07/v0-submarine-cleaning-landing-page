@@ -80,7 +80,7 @@ export function Hero() {
           className="object-cover md:hidden"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/40" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/10 to-black/40" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -95,7 +95,7 @@ export function Hero() {
                 key={index}
                 className="flex items-start gap-1 p-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
                   <Image
                     src={service.icon}
                     alt=""
@@ -117,11 +117,11 @@ export function Hero() {
           </div>
 
           {/* Rotating Images - Right Side */}
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-2xl">
             {serviceImages.map((image, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 bg-gradient-to-t from-black/40 via-transparent transition-opacity duration-1000 ${
+                className={`absolute inset-0 bg-linear-to-t from-black/40 via-transparent transition-opacity duration-1000 ${
                   index === currentImageIndex ? "opacity-100" : "opacity-0"
                 }`}
               >

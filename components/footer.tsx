@@ -8,7 +8,7 @@ import { useLanguage } from "./language-context";
 export function Footer() {
   const { t } = useLanguage();
   return (
-    <footer className="relative py-16 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-950 text-white">
+    <footer className="relative py-16 bg-linear-to-b from-slate-900 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           <div>
