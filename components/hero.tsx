@@ -8,53 +8,109 @@ import { useLanguage } from "@/components/language-context";
 const services = [
   {
     icon: "/icons/1.png",
-    title: { es: "Inspección submarina y registro fílmico", en: "Underwater inspection and video recording" },
+    title: {
+      es: "Inspección submarina y registro fílmico",
+      en: "Underwater inspection and video recording",
+    },
   },
   {
     icon: "/icons/2.png",
-    title: { es: "Limpieza del casco del barco(obra viva)", en: "Hull cleaning (running gear and bottom)" },
+    title: {
+      es: "Limpieza del casco del barco(obra viva)",
+      en: "Hull cleaning (running gear and bottom)",
+    },
   },
   {
     icon: "/icons/3.png",
-    title: { es: "Reemplazo de ánodos de sacrificio (zincs)", en: "Replacement of sacrificial anodes (zincs)" },
+    title: {
+      es: "Reemplazo de ánodos de sacrificio (zincs)",
+      en: "Replacement of sacrificial anodes (zincs)",
+    },
   },
   {
     icon: "/icons/4.png",
-    title: { es: "Ajuste y reemplazo de hélice", en: "Propeller adjustment and replacement" },
+    title: {
+      es: "Ajuste y reemplazo de hélice",
+      en: "Propeller adjustment and replacement",
+    },
   },
   {
     icon: "/icons/5.png",
-    title: { es: "Instalación submarina de luces, estabilizadores, tomas de fondo y otros accesorios.", en: "Underwater installation of lights, stabilizers, thru-hulls, and other fittings" },
+    title: {
+      es: "Instalación submarina de luces, estabilizadores, tomas de fondo y otros accesorios.",
+      en: "Underwater installation of lights, stabilizers, thru-hulls, and other fittings",
+    },
   },
   {
     icon: "/icons/6.png",
-    title: { es: "Limpieza y mantenimiento de pilotes y estructuras de muelles.", en: "Cleaning and maintenance of dock pilings and marine structures" },
+    title: {
+      es: "Limpieza y mantenimiento de pilotes y estructuras de muelles.",
+      en: "Cleaning and maintenance of dock pilings and marine structures",
+    },
   },
   {
     icon: "/icons/7.png",
-    title: { es: "Recuperación de objetos sumergidos.", en: "Underwater object recovery" },
+    title: {
+      es: "Recuperación de objetos sumergidos.",
+      en: "Underwater object recovery",
+    },
   },
   {
     icon: "/icons/8.png",
-    title: { es: "Servicios submarinos adicionales bajo solicitud.", en: "Additional underwater services upon request" },
+    title: {
+      es: "Servicios submarinos adicionales bajo solicitud.",
+      en: "Additional underwater services upon request",
+    },
   },
 ];
 
 const serviceImages = [
-  "/images/gallery-1.png",
-  "/scuba-diver-inspecting-yacht-hull-underwater.jpg",
-  "/professional-underwater-boat-maintenance.jpg",
-  "/diver-replacing-zinc-anodes-on-boat.jpg",
-  "/underwater-propeller-repair-service.jpg",
+  "/images/1.jpeg",
+  "/images/2.jpeg",
+  "/images/3.jpeg",
+  "/images/5.jpeg",
+  "/images/6.jpeg",
+  "/images/7.jpeg",
+  "/images/8.jpeg",
+  "/images/9.jpeg",
+  "/images/10.jpeg",
+  "/images/11.jpeg",
+  "/images/12.jpeg",
+  "/images/13.jpeg",
+  "/images/14.jpeg",
+  "/images/15.jpeg",
+  "/images/16.jpeg",
+  "/images/17.jpeg",
+  "/images/18.jpeg",
+  "/images/19.jpeg",
+  "/images/20.jpeg",
+  "/images/21.jpeg",
+  "/images/22.jpeg",
+  "/images/23.jpeg",
+  "/images/24.jpeg",
+  "/images/25.jpeg",
+  "/images/26.jpeg",
+  "/images/27.jpeg",
+  "/images/28.jpeg",
+  "/images/29.jpeg",
 ];
 
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { language } = useLanguage();
 
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]));
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages((prev) => new Set(prev).add(index));
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % serviceImages.length);
+      setCurrentImageIndex((prev) => {
+        const nextIndex = (prev + 1) % serviceImages.length;
+        return nextIndex;
+      });
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -84,8 +140,7 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-1">
-        </div>
+        <div className="text-center mb-1"></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-xs md:text-base ">
           {/* Services List - Left Side */}
@@ -130,6 +185,7 @@ export function Hero() {
                   alt={`Service image ${index + 1}`}
                   fill
                   className="object-cover"
+                  onLoad={() => handleImageLoad(index)}
                 />
               </div>
             ))}
@@ -152,7 +208,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }
