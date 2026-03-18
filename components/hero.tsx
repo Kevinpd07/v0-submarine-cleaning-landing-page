@@ -16,17 +16,9 @@ interface ServiceDetail {
     en: string;
     es: string;
   };
-  price?: {
-    en: string;
-    es: string;
-  };
   benefits?: {
     en: string[];
     es: string[];
-  };
-  frequency?: {
-    en: string;
-    es: string;
   };
 }
 
@@ -39,12 +31,8 @@ const services: ServiceDetail[] = [
       en: "Underwater inspection and video recording",
     },
     description: {
-      en: "Hull cleaning service (bottom and running gear). Visual inspection included at no extra cost.\n\nService without maintenance: $150\n\n---\n\nUnderwater Inspection & Video Recording – Why It Matters\n\nRegular underwater inspections are essential to maintain the safety, performance, and value of your vessel. Many critical components of a boat remain out of sight below the waterline, where damage and deterioration can go unnoticed until they become serious and costly problems.\n",
-      es: "Servicio de limpieza del casco (fondo y equipo de gobierno). Inspección visual incluida sin costo adicional.\n\nServicio sin mantenimiento: $150\n\n---\n\nInspección submarina y registro fílmico – Importancia del servicio\n\nLa inspección submarina periódica es clave para mantener la seguridad, el rendimiento y el valor de su embarcación. Muchas partes críticas del barco se encuentran bajo el agua, fuera de la vista, donde los daños pueden pasar desapercibidos hasta convertirse en problemas graves y costosos.\n",
-    },
-    price: {
-      en: "Service without maintenance: $150",
-      es: "Servicio sin mantenimiento: $150",
+      en: "Hull cleaning service (bottom and running gear). Visual inspection included at no extra cost.\n\nService without maintenance: $150\n\n\nUnderwater Inspection & Video Recording – Why It Matters\n\nRegular underwater inspections are essential to maintain the safety, performance, and value of your vessel. Many critical components of a boat remain out of sight below the waterline, where damage and deterioration can go unnoticed until they become serious and costly problems.\n",
+      es: "Servicio de limpieza del casco (fondo y equipo de gobierno). Inspección visual incluida sin costo adicional.\n\nServicio sin mantenimiento: $150\n\n\nInspección submarina y registro fílmico – Importancia del servicio\n\nLa inspección submarina periódica es clave para mantener la seguridad, el rendimiento y el valor de su embarcación. Muchas partes críticas del barco se encuentran bajo el agua, fuera de la vista, donde los daños pueden pasar desapercibidos hasta convertirse en problemas graves y costosos.\n",
     },
     benefits: {
       en: [
@@ -62,10 +50,6 @@ const services: ServiceDetail[] = [
         "🔒 Seguridad y tranquilidad - Conocer el estado real de su embarcación bajo el agua reduce riesgos y aumenta la seguridad en navegación.",
       ],
     },
-    frequency: {
-      en: "Recommended Frequency: Periodic inspections are recommended every few months or before long trips, after groundings, or if unusual vibrations, noise, or performance changes are noticed.",
-      es: "Frecuencia recomendada: Se recomienda realizar inspecciones periódicas cada pocos meses o antes de viajes largos, después de encallar, o si se notan vibraciones, ruidos o cambios de rendimiento inusuales.",
-    },
   },
   {
     id: "hull-cleaning",
@@ -77,10 +61,6 @@ const services: ServiceDetail[] = [
     description: {
       en: "Hull cleaning service (bottom and running gear). Visual inspection included at no extra cost.",
       es: "Servicio de limpieza del casco (fondo y equipo de gobierno). Inspección visual incluida sin costo adicional.",
-    },
-    price: {
-      en: "Service without maintenance: $150",
-      es: "Servicio sin mantenimiento: $150",
     },
     benefits: {
       en: [
@@ -427,8 +407,8 @@ export function Hero() {
 
             {/* Header */}
             <div className="p-6 pb-4 border-b">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden">
+              <div className="flex items-center gap-3 mb-3 pr-10">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center overflow-hidden shrink-0">
                   <Image
                     src={selectedService.icon}
                     alt=""
@@ -437,17 +417,10 @@ export function Hero() {
                     className="object-contain"
                   />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">
                   {selectedService.title[language]}
                 </h2>
               </div>
-              {selectedService.price && (
-                <div className="inline-block px-4 py-2 bg-blue-100 rounded-lg">
-                  <span className="text-blue-700 font-semibold">
-                    {selectedService.price[language]}
-                  </span>
-                </div>
-              )}
             </div>
 
             {/* Body */}
@@ -455,9 +428,89 @@ export function Hero() {
               {/* Description */}
               {selectedService.description && (
                 <div className="mb-6">
-                  <p className="text-gray-600 whitespace-pre-line">
-                    {selectedService.description[language]}
-                  </p>
+                  {selectedService.id === "inspection" ? (
+                    <>
+                      {/* First two lines with star icons - Inspection service */}
+                      <div className="relative space-y-2 mb-4">
+                        {/* Container with background image for both lines */}
+                        <div className="relative p-1 rounded-lg">
+                          {/* Background image - behind both lines */}
+                          <div className="absolute inset-x-0 top-0 h-25 -mt-1 md:h-15">
+                            <Image
+                              src="/icons/free.png"
+                              alt=""
+                              fill
+                              className="object-contain opacity-30"
+                            />
+                          </div>
+                          {/* Content */}
+                          <div className="relative z-10 space-y-2">
+                            {/* First line */}
+                            <div className="flex items-start gap-0">
+                              <Image
+                                src="/icons/start.PNG"
+                                alt=""
+                                width={30}
+                                height={30}
+                                className="object-contain mt-0.5 shrink-0"
+                              />
+                              <p className="text-gray-600 font-medium">
+                                {selectedService.description[language]
+                                  .split("\n\n")
+                                  .slice(0, 1)
+                                  .join("")}
+                              </p>
+                            </div>
+                            {/* Second line */}
+                            <div className="flex items-start gap-0">
+                              <Image
+                                src="/icons/start.PNG"
+                                alt=""
+                                width={30}
+                                height={30}
+                                className="object-contain mt-0.5 shrink-0"
+                              />
+                              <p className="text-gray-600 font-medium">
+                                {selectedService.description[language]
+                                  .split("\n\n")
+                                  .slice(1, 2)
+                                  .join("")}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Rest of description after the first two lines (separator) */}
+                      {selectedService.description[language]
+                        .split("\n\n")
+                        .filter((part) => part.trim() !== "")
+                        .slice(2)
+                        .join("\n\n") && (
+                        <div className="whitespace-pre-line">
+                          {/* First paragraph as title */}
+                          <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                            {selectedService.description[language]
+                              .split("\n\n")
+                              .filter((part) => part.trim() !== "")
+                              .slice(2, 3)
+                              .join("")}
+                          </h3>
+                          {/* Rest of the content */}
+                          <p className="text-gray-600">
+                            {selectedService.description[language]
+                              .split("\n\n")
+                              .filter((part) => part.trim() !== "")
+                              .slice(3)
+                              .join("\n\n")}
+                          </p>
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <p className="text-gray-600 whitespace-pre-line">
+                      {selectedService.description[language]}
+                    </p>
+                  )}
                 </div>
               )}
 
@@ -478,15 +531,6 @@ export function Hero() {
                       </li>
                     ))}
                   </ul>
-                </div>
-              )}
-
-              {/* Frequency */}
-              {selectedService.frequency && (
-                <div className="p-4 bg-gray-100 rounded-lg">
-                  <p className="text-sm text-gray-600">
-                    {selectedService.frequency[language]}
-                  </p>
                 </div>
               )}
             </div>
