@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/components/language-context";
 import { ServiceModal, services } from "./service-modal";
 
@@ -55,7 +56,7 @@ export function Hero() {
         const nextIndex = (prev + 1) % serviceImages.length;
         return nextIndex;
       });
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -137,6 +138,33 @@ export function Hero() {
                 />
               </div>
             ))}
+
+            {/* Left Arrow */}
+            <button
+              onClick={() =>
+                setCurrentImageIndex(
+                  (prev) =>
+                    (prev - 1 + serviceImages.length) % serviceImages.length,
+                )
+              }
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={() =>
+                setCurrentImageIndex(
+                  (prev) => (prev + 1) % serviceImages.length,
+                )
+              }
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
 
             {/* Image indicators */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">

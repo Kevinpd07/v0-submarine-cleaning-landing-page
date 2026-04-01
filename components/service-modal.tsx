@@ -346,7 +346,7 @@ export const services: ServiceDetail[] = [
     },
     modalTitle: {
       es: "Limpieza y mantenimiento de pilotes y estructuras de muelles.",
-      en: "Dock Pilings & Marine Structures – Specialized Services",
+      en: "Cleaning and maintenance of dock pilings and marine structures – Specialized Services",
     },
     pricing: {
       en: [

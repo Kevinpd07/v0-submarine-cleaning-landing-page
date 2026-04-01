@@ -30,12 +30,15 @@ export function Header() {
           </Link>
           <div className="flex flex-col">
             <p className="text-xs md:text-base text-blue-600 font-medium leading-tight">
-              {t({ 
-                es: "Limpieza Submarina y Mantenimiento", 
-                en: "Underwater Cleaning & Maintenance" 
+              {t({
+                es: "Limpieza Submarina y Mantenimiento",
+                en: "Underwater Cleaning & Maintenance",
               })}
             </p>
-            <a href="tel:+13059050376" className="text-xs md:text-sm text-blue-500 font-semibold hover:text-blue-700 block md:inline mt-1 ml-10">
+            <a
+              href="tel:+13059050376"
+              className="text-xs md:text-sm text-blue-500 font-semibold hover:text-blue-700 block md:inline mt-1 ml-10"
+            >
               +1 (305) 905 0376
             </a>
           </div>
@@ -50,14 +53,19 @@ export function Header() {
               {language === "es" ? "EN" : "ES"}
             </button>
             <button
-              onClick={() => window.open("https://wa.me/13059050376?text=Hi! I'm interested in your underwater cleaning services. Can you provide more information?", "_blank")}
+              onClick={() =>
+                window.open(
+                  "https://wa.me/13059050376?text=Hi! I'm interested in your underwater cleaning services. Can you provide more information?",
+                  "_blank",
+                )
+              }
               className="bg-green-500 hover:bg-green-600 text-white font-semibold shadow-md cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2"
             >
               <MessageCircle className="h-4 w-4" />
               {t({ es: "WhatsApp", en: "WhatsApp" })}
             </button>
             <a
-              href={`sms:+13059050376?body=${language === "es" ? "Hola, estoy interesado en sus servicios de limpieza submarina." : "Hi, I'm interested in your underwater cleaning services."}`}
+              href={`sms:+13059050376?body=${language === "es" ? "Hola, estoy interesado en sus servicios submarinos." : "Hi, I'm interested in your underwater services."}`}
               className="bg-blue-500 hover:bg-blue-600 text-white font-semibold shadow-md cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2"
             >
               <MessageCircle className="h-4 w-4" />
@@ -99,11 +107,14 @@ export function Header() {
                 className="w-fit bg-gray-900 hover:bg-gray-800 cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2 text-white font-semibold"
               >
                 <Globe className="h-4 w-4" />
-                {language === "es" ? "English" : "Español" }
+                {language === "es" ? "English" : "Español"}
               </button>
               <button
                 onClick={() => {
-                  window.open("https://wa.me/13059050376?text=Hi! I'm interested in your underwater cleaning services. Can you provide more information?", "_blank");
+                  window.open(
+                    "https://wa.me/13059050376?text=Hi! I'm interested in your underwater cleaning services. Can you provide more information?",
+                    "_blank",
+                  );
                   setIsMenuOpen(false);
                 }}
                 className="w-fit bg-green-500 hover:bg-green-600 cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2"
@@ -112,7 +123,7 @@ export function Header() {
                 {t({ es: "WhatsApp", en: "WhatsApp" })}
               </button>
               <a
-                href={`sms:+13059050376?body=${language === "es" ? "Hola, estoy interesado en sus servicios de limpieza submarina." : "Hi, I'm interested in your underwater cleaning services."}`}
+                href={`sms:+13059050376?body=${language === "es" ? "Hola, estoy interesado en sus servicios submarinos." : "Hi, I'm interested in your underwater services."}`}
                 className="w-fit bg-blue-500 hover:bg-blue-600 cursor-pointer px-4 py-2 rounded-lg flex items-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
