@@ -26,34 +26,42 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
-              {t({ 
-                es: "Servicios profesionales de limpieza submarina,mantenimiento para barcos y yates.", 
-                en: "Professional underwater cleaning services,mantenance for boats and yachts." 
+              {t({
+                es: "Servicios profesionales de limpieza submarina,mantenimiento para barcos y yates.",
+                en: "Professional underwater cleaning services,mantenance for boats and yachts.",
               })}
             </p>
           </div>
 
           <div className="text-center">
             <p className="font-semibold mb-2 tracking-wide">
-              {t({ es: "Servicio disponible en:", en: "Service available at:" })}
+              {t({
+                es: "Servicio disponible en:",
+                en: "Service available at:",
+              })}
             </p>
             <p className="text-white/70 text-sm">
-              {t({ es: "Marinas • Puertos • Muelles Privados", en: "Marinas • Ports • Private Docks" })}
+              {t({
+                es: "Marinas • Puertos • Muelles Privados",
+                en: "Marinas • Ports • Private Docks",
+              })}
             </p>
           </div>
 
           <div className="md:text-right">
-            <p className="font-semibold mb-4">{t({ es: "Síguenos", en: "Follow Us" })}</p>
+            <p className="font-semibold mb-4">
+              {t({ es: "Síguenos", en: "Follow Us" })}
+            </p>
             <div className="flex gap-4 md:justify-end">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1FfAKLYiHa/?mibextid=wwXIfr"
                 className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:text-blue-900 transition-all duration-300"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/bluestarservice.inc?igsh=MWhoMmxzZWJibjgzeQ%3D%3D&utm_source=qr"
                 className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center hover:bg-white hover:text-blue-900 transition-all duration-300"
                 aria-label="Instagram"
               >
@@ -72,9 +80,10 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
           <p className="text-white/50 text-sm">
-            © {new Date().getFullYear()} Blue Star Service. {t({ 
-              es: "Todos los derechos reservados.", 
-              en: "All rights reserved." 
+            © {new Date().getFullYear()} Blue Star Service.{" "}
+            {t({
+              es: "Todos los derechos reservados.",
+              en: "All rights reserved.",
             })}
           </p>
         </div>

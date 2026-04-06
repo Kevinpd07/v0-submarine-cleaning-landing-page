@@ -43,6 +43,10 @@ export const services: ServiceDetail[] = [
     icon: "/icons/1.png",
     title: {
       es: "Inspección submarina y registro fílmico",
+      en: "Underwater Inspection & Video Recording",
+    },
+    modalTitle: {
+      es: "Inspección submarina y registro fílmico – Importancia del servicio",
       en: "Underwater Inspection & Video Recording – Why It Matters",
     },
     benefitsTitle: {
@@ -50,8 +54,30 @@ export const services: ServiceDetail[] = [
       en: "Why should this service be done?",
     },
     description: {
-      en: "Hull cleaning service (bottom and running gear). Visual inspection included at no extra cost.\n\nService without maintenance: $150\n\n\nUnderwater Inspection & Video Recording – Why It Matters\n\nRegular underwater inspections are essential to maintain the safety, performance, and value of your vessel. Many critical components of a boat remain out of sight below the waterline, where damage and deterioration can go unnoticed until they become serious and costly problems.\n",
-      es: "Servicio de limpieza del casco (fondo y equipo de gobierno). Inspección visual incluida sin costo adicional.\n\nServicio sin mantenimiento: $150\n\n\nInspección submarina y registro fílmico – Importancia del servicio\n\nLa inspección submarina periódica es clave para mantener la seguridad, el rendimiento y el valor de su embarcación. Muchas partes críticas del barco se encuentran bajo el agua, fuera de la vista, donde los daños pueden pasar desapercibidos hasta convertirse en problemas graves y costosos.\n",
+      en: "Regular underwater inspections are essential to maintain the safety, performance, and value of your vessel. Many critical components of a boat remain out of sight below the waterline, where damage and deterioration can go unnoticed until they become serious and costly problems.",
+      es: "La inspección submarina periódica es clave para mantener la seguridad, el rendimiento y el valor de su embarcación. Muchas partes críticas del barco se encuentran bajo el agua, fuera de la vista, donde los daños pueden pasar desapercibidos hasta convertirse en problemas graves y costosos.",
+    },
+    pricing: {
+      en: [
+        {
+          number: "1",
+          text: "Hull cleaning service (bottom and running gear).Visual inspection included at no extra cost.",
+        },
+        {
+          number: "2",
+          text: "Service without maintenance: $150. Members $80.",
+        },
+      ],
+      es: [
+        {
+          number: "1",
+          text: "Servicio de limpieza del casco (fondo y tren de rodaje). Inspección visual incluida sin coste adicional.",
+        },
+        {
+          number: "2",
+          text: "Servicio sin mantenimiento: $150. Miembros $80.",
+        },
+      ],
     },
     benefits: {
       en: [
@@ -95,7 +121,10 @@ export const services: ServiceDetail[] = [
           number: "1",
           text: "Remove rust stains from fittings near the waterline (Free)",
         },
-        { number: "2", text: "Hull cleaning $4 per foot" },
+        {
+          number: "2",
+          text: "Hull cleaning $5 per foot. Members $4 per foot.",
+        },
         { number: "3", text: "Sterndrive $20 each" },
         { number: "4", text: "Hydraulic platform $50" },
       ],
@@ -104,7 +133,10 @@ export const services: ServiceDetail[] = [
           number: "1",
           text: "Quitar manchas de óxido a los accesorios cerca de la línea de flotación (Free).",
         },
-        { number: "2", text: "Limpieza del casco del barco $4 ft." },
+        {
+          number: "2",
+          text: "Limpieza del casco del barco $5 ft. Miembros $4 ft.",
+        },
         { number: "3", text: "Sterndrive $20 cada uno." },
         { number: "4", text: "Plataforma hidráulica $50." },
       ],
@@ -580,109 +612,9 @@ export function ServiceModal({ selectedService, onClose }: ServiceModalProps) {
           {/* Description */}
           {selectedService.description && (
             <div className="mb-6">
-              {selectedService.id === "inspection" ? (
-                <>
-                  {/* First two lines with star icons - Inspection service */}
-                  <div className="relative space-y-2 mb-4">
-                    {/* Container with background image for both lines */}
-                    <div className="relative p-1 rounded-lg">
-                      {/* Background image - behind both lines */}
-                      {(selectedService.id === "inspection" ||
-                        selectedService.id === "hull-cleaning") && (
-                        <div className="absolute inset-x-0 top-0 h-25 -mt-1 md:h-15">
-                          <Image
-                            src="/icons/free.png"
-                            alt=""
-                            fill
-                            className="object-contain opacity-30"
-                          />
-                        </div>
-                      )}
-                      {/* Content */}
-                      <div className="relative z-10 space-y-2">
-                        {/* First line */}
-                        <div className="flex items-start gap-0">
-                          <Image
-                            src="/icons/start.PNG"
-                            alt=""
-                            width={30}
-                            height={30}
-                            className="object-contain mt-0.5 shrink-0"
-                          />
-                          <p className="text-gray-600 font-medium">
-                            {selectedService.description[language]
-                              .split("\n\n")
-                              .slice(0, 1)
-                              .join("")}
-                          </p>
-                        </div>
-                        {/* Second line */}
-                        <div className="flex items-start gap-0">
-                          <Image
-                            src="/icons/start.PNG"
-                            alt=""
-                            width={30}
-                            height={30}
-                            className="object-contain mt-0.5 shrink-0"
-                          />
-                          <p className="text-gray-600 font-medium">
-                            {selectedService.description[language]
-                              .split("\n\n")
-                              .slice(1, 2)
-                              .join("")}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Rest of description after the first two lines (separator) */}
-                  {selectedService.description[language]
-                    .split("\n\n")
-                    .filter((part) => part.trim() !== "")
-                    .slice(2)
-                    .join("\n\n") && (
-                    <div className="whitespace-pre-line">
-                      {/* First paragraph as title */}
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                        {selectedService.description[language]
-                          .split("\n\n")
-                          .filter((part) => part.trim() !== "")
-                          .slice(2, 3)
-                          .join("")}
-                      </h3>
-                      {/* Rest of the content */}
-                      <p className="text-gray-600">
-                        {selectedService.description[language]
-                          .split("\n\n")
-                          .filter((part) => part.trim() !== "")
-                          .slice(3)
-                          .join("\n\n")}
-                      </p>
-                    </div>
-                  )}
-                </>
-              ) : (selectedService.id === "hull-cleaning" ||
-                  selectedService.id === "anodes" ||
-                  selectedService.id === "propeller" ||
-                  selectedService.id === "installation" ||
-                  selectedService.id === "docks" ||
-                  selectedService.id === "recovery" ||
-                  selectedService.id === "additional") &&
-                selectedService.description ? (
-                <p className="text-gray-600 whitespace-pre-line">
-                  {selectedService.description[language]}
-                </p>
-              ) : selectedService.id !== "hull-cleaning" &&
-                selectedService.id !== "anodes" &&
-                selectedService.id !== "propeller" &&
-                selectedService.id !== "installation" &&
-                selectedService.id !== "docks" &&
-                selectedService.id !== "recovery" &&
-                selectedService.id !== "additional" ? (
-                <p className="text-gray-600 whitespace-pre-line">
-                  {selectedService.description[language]}
-                </p>
-              ) : null}
+              <p className="text-gray-600 whitespace-pre-line">
+                {selectedService.description[language]}
+              </p>
             </div>
           )}
 
