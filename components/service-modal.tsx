@@ -123,10 +123,11 @@ export const services: ServiceDetail[] = [
         },
         {
           number: "2",
-          text: "Hull cleaning $5 per foot. Members $4 per foot.",
+          text: "Hull cleaning members $4 per foot.",
         },
-        { number: "3", text: "Sterndrive $20 each" },
-        { number: "4", text: "Hydraulic platform $50" },
+        { number: "3", text: "Hull cleaning no members $5 per foot." },
+        { number: "4", text: "Sterndrive $20 each" },
+        { number: "5", text: "Hydraulic platform $50" },
       ],
       es: [
         {
@@ -135,10 +136,14 @@ export const services: ServiceDetail[] = [
         },
         {
           number: "2",
-          text: "Limpieza del casco del barco $5 ft. Miembros $4 ft.",
+          text: "Limpieza del casco del barco miembros $4 ft.",
         },
-        { number: "3", text: "Sterndrive $20 cada uno." },
-        { number: "4", text: "Plataforma hidráulica $50." },
+        {
+          number: "3",
+          text: "Limpieza del casco del barco no miembros $5 ft.",
+        },
+        { number: "4", text: "Sterndrive $20 cada uno." },
+        { number: "5", text: "Plataforma hidráulica $50." },
       ],
     },
     benefits: {
