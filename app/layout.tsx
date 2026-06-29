@@ -12,9 +12,26 @@ const _playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Blue Star Service | Professional Underwater Cleaning",
-  description:
-    "Professional underwater cleaning services for ships in Miami. Hull inspection, polishing, anti-fouling painting, propeller repairs and more.",
-  generator: "v0.app",
+   description:
+     "Professional underwater cleaning services for ships in Miami. Hull inspection, polishing, anti-fouling painting, propeller repairs and more.",
+   keywords: [
+     "Hull cleaning",
+     "Marine",
+     "Underwater",
+     "Diver",
+     "Dock",
+     "Zincs replacement",
+     "Sterndrive",
+     "Zincs anode installation",
+     "Boat",
+     "Boat maintenance",
+     "Underwater light",
+     "Boat captain",
+     "Boat bottom cleaning",
+     "Propeller maintenance",
+     "Sacrificial anodes",
+   ],
+   generator: "v0.app",
   icons: {
     icon: [
       {
